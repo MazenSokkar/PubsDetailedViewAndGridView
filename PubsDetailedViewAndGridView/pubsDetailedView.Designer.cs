@@ -60,7 +60,6 @@
             titleIdLabel.Size = new Size(43, 15);
             titleIdLabel.TabIndex = 1;
             titleIdLabel.Text = "Title Id";
-            titleIdLabel.Click += label1_Click;
             // 
             // titleTB
             // 
@@ -68,7 +67,6 @@
             titleTB.Name = "titleTB";
             titleTB.Size = new Size(155, 23);
             titleTB.TabIndex = 2;
-            titleTB.TextChanged += textBox1_TextChanged;
             // 
             // titleLabel
             // 
@@ -87,7 +85,6 @@
             typeLabel.Size = new Size(32, 15);
             typeLabel.TabIndex = 4;
             typeLabel.Text = "Type";
-            typeLabel.Click += label3_Click;
             // 
             // priceLabel
             // 
@@ -178,6 +175,7 @@
             Controls.Add(titleIdCB);
             Name = "pubsDetailedView";
             Text = "pubsDetailedView";
+            Load += pubsDetailedView_Load;
             ResumeLayout(false);
             PerformLayout();
         }

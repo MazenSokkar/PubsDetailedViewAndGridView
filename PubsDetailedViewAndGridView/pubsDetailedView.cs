@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,21 +16,38 @@ namespace PubsDetailedViewAndGridView
         public pubsDetailedView()
         {
             InitializeComponent();
-        }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+            sqlCn = new SqlConnection("Data Source=Mazen\\SQLEXPRESS;Initial Catalog=pubs;Integrated Security=true;TrustServerCertificate=True;");
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        SqlConnection sqlCn;
+        SqlCommand sqlCmd;
+        SqlDataAdapter DA;
+        DataTable DT = new DataTable();
+        BindingSource TitleBindingSource;
+
+        private void pubsDetailedView_Load(object sender, EventArgs e)
         {
+            sqlCmd = new SqlCommand("SELECT * FROM titles;", sqlCn);
 
-        }
+            DA = new SqlDataAdapter(sqlCmd);
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+            DA.Fill(DT);
 
+            TitleBindingSource = new BindingSource();
+            TitleBindingSource.DataSource = DT;
+
+            titleIdCB.DataSource = TitleBindingSource;
+            titleIdCB.DisplayMember = "title_id"; 
+            titleIdCB.ValueMember = "title_id"; 
+
+            titleTB.DataBindings.Add("Text", TitleBindingSource, "title");
+
+            typeCB.DataSource = TitleBindingSource;
+            typeCB.DisplayMember = "type";
+
+            priceTB.DataBindings.Add("Text", TitleBindingSource, "price");
         }
     }
 }
