@@ -28,12 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "pubsGridView";
+            titleGV = new DataGridView();
+            saveBTN = new Button();
+            ((System.ComponentModel.ISupportInitialize)titleGV).BeginInit();
+            SuspendLayout();
+            // 
+            // titleGV
+            // 
+            titleGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            titleGV.Location = new Point(12, 12);
+            titleGV.Name = "titleGV";
+            titleGV.Size = new Size(776, 248);
+            titleGV.TabIndex = 0;
+            // 
+            // saveBTN
+            // 
+            saveBTN.Location = new Point(713, 271);
+            saveBTN.Name = "saveBTN";
+            saveBTN.Size = new Size(75, 23);
+            saveBTN.TabIndex = 1;
+            saveBTN.Text = "Save";
+            saveBTN.UseVisualStyleBackColor = true;
+            saveBTN.Click += saveBTN_Click;
+            // 
+            // pubsGridView
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 306);
+            Controls.Add(saveBTN);
+            Controls.Add(titleGV);
+            Name = "pubsGridView";
+            Text = "pubsGridView";
+            Load += pubsGridView_Load;
+            ((System.ComponentModel.ISupportInitialize)titleGV).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private DataGridView titleGV;
+        private Button saveBTN;
     }
 }
