@@ -39,8 +39,8 @@ namespace PubsDetailedViewAndGridView
             TitleBindingSource.DataSource = DT;
 
             titleIdCB.DataSource = TitleBindingSource;
-            titleIdCB.DisplayMember = "title_id"; 
-            titleIdCB.ValueMember = "title_id"; 
+            titleIdCB.DisplayMember = "title_id";
+            titleIdCB.ValueMember = "title_id";
 
             titleTB.DataBindings.Add("Text", TitleBindingSource, "title");
 
@@ -48,6 +48,16 @@ namespace PubsDetailedViewAndGridView
             typeCB.DisplayMember = "type";
 
             priceTB.DataBindings.Add("Text", TitleBindingSource, "price");
+        }
+
+        private void prevBTN_Click(object sender, EventArgs e)
+        {
+            TitleBindingSource.MovePrevious();
+        }
+
+        private void nextBTN_Click(object sender, EventArgs e)
+        {
+            TitleBindingSource.MoveNext();
         }
     }
 }

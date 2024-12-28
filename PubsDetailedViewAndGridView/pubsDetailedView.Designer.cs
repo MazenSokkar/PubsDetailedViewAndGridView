@@ -110,6 +110,7 @@
             prevBTN.TabIndex = 8;
             prevBTN.Text = "<";
             prevBTN.UseVisualStyleBackColor = true;
+            prevBTN.Click += prevBTN_Click;
             // 
             // nextBTN
             // 
@@ -119,6 +120,7 @@
             nextBTN.TabIndex = 9;
             nextBTN.Text = ">";
             nextBTN.UseVisualStyleBackColor = true;
+            nextBTN.Click += nextBTN_Click;
             // 
             // addBTN
             // 
