@@ -17,7 +17,7 @@ namespace PubsDetailedViewAndGridView
         {
             InitializeComponent();
 
-            sqlCn = new SqlConnection("Data Source=Mazen\\SQLEXPRESS;Initial Catalog=pubs;Integrated Security=true;TrustServerCertificate=True;");
+            sqlCn = new SqlConnection("Data Source=.;Initial Catalog=pubs;Integrated Security=true;TrustServerCertificate=True;");
 
         }
 
