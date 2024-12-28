@@ -37,10 +37,9 @@
             priceTB = new TextBox();
             prevBTN = new Button();
             nextBTN = new Button();
-            addBTN = new Button();
             updateBTN = new Button();
             deleteBTN = new Button();
-            typeCB = new ComboBox();
+            typeTB = new TextBox();
             SuspendLayout();
             // 
             // titleIdCB
@@ -122,50 +121,41 @@
             nextBTN.UseVisualStyleBackColor = true;
             nextBTN.Click += nextBTN_Click;
             // 
-            // addBTN
-            // 
-            addBTN.Location = new Point(25, 251);
-            addBTN.Name = "addBTN";
-            addBTN.Size = new Size(75, 23);
-            addBTN.TabIndex = 10;
-            addBTN.Text = "Add";
-            addBTN.UseVisualStyleBackColor = true;
-            // 
             // updateBTN
             // 
-            updateBTN.Location = new Point(151, 251);
+            updateBTN.Location = new Point(71, 251);
             updateBTN.Name = "updateBTN";
             updateBTN.Size = new Size(75, 23);
             updateBTN.TabIndex = 11;
             updateBTN.Text = "Update";
             updateBTN.UseVisualStyleBackColor = true;
+            updateBTN.Click += updateBTN_Click;
             // 
             // deleteBTN
             // 
-            deleteBTN.Location = new Point(274, 251);
+            deleteBTN.Location = new Point(237, 251);
             deleteBTN.Name = "deleteBTN";
             deleteBTN.Size = new Size(75, 23);
             deleteBTN.TabIndex = 12;
             deleteBTN.Text = "Delete";
             deleteBTN.UseVisualStyleBackColor = true;
+            deleteBTN.Click += deleteBTN_Click;
             // 
-            // typeCB
+            // typeTB
             // 
-            typeCB.FormattingEnabled = true;
-            typeCB.Location = new Point(115, 114);
-            typeCB.Name = "typeCB";
-            typeCB.Size = new Size(155, 23);
-            typeCB.TabIndex = 13;
+            typeTB.Location = new Point(115, 114);
+            typeTB.Name = "typeTB";
+            typeTB.Size = new Size(155, 23);
+            typeTB.TabIndex = 13;
             // 
             // pubsDetailedView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(361, 301);
-            Controls.Add(typeCB);
+            Controls.Add(typeTB);
             Controls.Add(deleteBTN);
             Controls.Add(updateBTN);
-            Controls.Add(addBTN);
             Controls.Add(nextBTN);
             Controls.Add(prevBTN);
             Controls.Add(priceTB);
@@ -193,9 +183,8 @@
         private TextBox priceTB;
         private Button prevBTN;
         private Button nextBTN;
-        private Button addBTN;
         private Button updateBTN;
         private Button deleteBTN;
-        private ComboBox typeCB;
+        private TextBox typeTB;
     }
 }

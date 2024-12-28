@@ -44,8 +44,7 @@ namespace PubsDetailedViewAndGridView
 
             titleTB.DataBindings.Add("Text", TitleBindingSource, "title");
 
-            typeCB.DataSource = TitleBindingSource;
-            typeCB.DisplayMember = "type";
+            typeTB.DataBindings.Add("Text", TitleBindingSource, "type");
 
             priceTB.DataBindings.Add("Text", TitleBindingSource, "price");
         }
@@ -58,6 +57,35 @@ namespace PubsDetailedViewAndGridView
         private void nextBTN_Click(object sender, EventArgs e)
         {
             TitleBindingSource.MoveNext();
+        }
+
+        private void updateBTN_Click(object sender, EventArgs e)
+        {
+            string titleId = titleIdCB.SelectedValue.ToString();
+            string newTitle = titleTB.Text;
+            string newType = typeTB.Text;
+            decimal newPrice = decimal.Parse(priceTB.Text);
+
+
+            DataRow[] rows = DT.Select($"title_id = '{titleId}'");
+
+            DataRow row = rows[0];
+            row["title"] = newTitle;
+            row["type"] = newType;
+            row["price"] = newPrice;
+
+            SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(DA);
+
+            DA.Update(DT);
+        }
+
+        private void deleteBTN_Click(object sender, EventArgs e)
+        {
+            SqlCommand sqlCmdDelete = new SqlCommand("DELETE FROM titles WHERE title_id = @title_id", sqlCn);
+            sqlCmdDelete.Parameters.AddWithValue("@title_id", titleIdCB.SelectedValue.ToString());
+            sqlCn.Open();
+            sqlCmdDelete.ExecuteNonQuery();
+            sqlCn.Close();
         }
     }
 }
